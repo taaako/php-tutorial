@@ -1,15 +1,7 @@
 <?php
 
-$name = 'sato';
+// べき乗
+echo 10 ** 3 . PHP_EOL;
 
-// 終端記号
-// 'EOT' : now document
-// "EOT" / EOT : here doc -> 変数を埋め込める
-    $text = <<<EOT
-    hello! $name
-        this is loooooong
-    text!
-
-    EOT;
-
-echo $text;
+// 文字列も数値として計算する
+echo 2 + '3' .PHP_EOL;
