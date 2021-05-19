@@ -2,10 +2,14 @@
 
 $name = 'sato';
 
-// "" の中に '' で '' の表示を可能に
-// "" の中であれば変数を埋め込める
-// "" の中で "" を表示させるには \"\"
-// \t で tab 表示可能
+// 終端記号
+// 'EOT' : now document
+// "EOT" / EOT : here doc -> 変数を埋め込める
+    $text = <<<EOT
+    hello! $name
+        this is loooooong
+    text!
 
-echo "Hello I'm ". $name . PHP_EOL;
-echo "Hi $name" . PHP_EOL;
+    EOT;
+
+echo $text;
