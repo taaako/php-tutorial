@@ -1,22 +1,29 @@
 <?php
 
-// if === の時の条件分岐 -> switch
-// or, || の場合、case を追加する
-// default でそれ以外の時の分岐に
-$signal = 'pink';
+for ($i = 1; $i <= 5; $i++) {
+    echo "$i - Hello" . PHP_EOL;
+}
 
-switch ($signal) {
-    case 'red':
-        echo 'Stop!' . PHP_EOL;
+$hp = 100;
+
+while ($hp > 0) {
+    echo "Your HP: $hp" . PHP_EOL;
+    $hp -= 15;
+}
+
+// do-while 1回でも処理をまわす
+do {
+    echo "Your HP: $hp" . PHP_EOL;
+    $hp -= 15;
+} while ($hp > 0);
+
+// continue / break
+for ($i = 1; $i <= 10; $i++) {
+    if ($i % 3 === 0) {
+        continue;
+    }
+    if ($i === 4) {
         break;
-    case 'yellow':
-        echo 'Caution' . PHP_EOL;
-        break;
-    case 'blue':
-    case 'green':
-        echo 'Go' . PHP_EOL;
-        break;
-    default:
-        echo 'Wrong signal' . PHP_EOL;
-        break;
+    }
+    echo $i . PHP_EOL;
 }
