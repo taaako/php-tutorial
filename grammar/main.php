@@ -1,7 +1,12 @@
 <?php
 
-// べき乗
-echo 10 ** 3 . PHP_EOL;
+// $name = 'sato';
+// $name = 'dotinstall';
 
-// 文字列も数値として計算する
-echo 2 + '3' .PHP_EOL;
+// 定数は大文字 define() と const
+// 定数に再代入しようとするとNoticeという警告になる
+define('NAME', 'sato');
+echo NAME . PHP_EOL;
+
+const CNAME = 'sato';
+echo CNAME . PHP_EOL;
