@@ -1,29 +1,36 @@
 <?php
 
-for ($i = 1; $i <= 5; $i++) {
-    echo "$i - Hello" . PHP_EOL;
+// #22
+function showAd($message = 'Ad') // 仮引数 / '初期値'
+{
+    echo '------------' . PHP_EOL;
+    echo '-----' . $message . '-----' . PHP_EOL;
+    echo '------------' . PHP_EOL;
 }
 
-$hp = 100;
+showAd('Header Ad'); // 実引数
+echo 'Tom is great!' . PHP_EOL;
+echo 'Bob is great!' . PHP_EOL;
+showAd();
+echo 'Steve is great!' . PHP_EOL;
+echo 'Bob is great!' . PHP_EOL;
+showAd('Footer Ad');
 
-while ($hp > 0) {
-    echo "Your HP: $hp" . PHP_EOL;
-    $hp -= 15;
+// #23 return / #24 scope
+
+$rate = 1.1; // グローバルスコープ
+
+function sum($a, $b, $c)
+{
+    // echo $a + $b + $c .PHP_EOL;
+    // global $rate;
+    $rate = 1.08; // ローカルスコープ
+    return ($a + $b + $c) * $rate;
+    // return のあとは実行されない。
+    echo 'Here!' . PHP_EOL;
 }
 
-// do-while 1回でも処理をまわす
-do {
-    echo "Your HP: $hp" . PHP_EOL;
-    $hp -= 15;
-} while ($hp > 0);
+// sum(100, 200, 300);
+// sum(300, 400, 500);
 
-// continue / break
-for ($i = 1; $i <= 10; $i++) {
-    if ($i % 3 === 0) {
-        continue;
-    }
-    if ($i === 4) {
-        break;
-    }
-    echo $i . PHP_EOL;
-}
+echo sum(100, 200, 300) + sum(300, 400, 500) . PHP_EOL;
