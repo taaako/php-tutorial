@@ -1,24 +1,24 @@
 <?php
 
-$sum = function ($a, $b, $c) { // 無名関数
-    return $a + $b + $c;
-};
+// 型指定するだけでは文字列の数値をintに変換してしまう。(弱い)
+// なので、強い型付けをしたければ declare文を最初につける。
+declare(strict_types=1);
 
-echo $sum(100, 300, 500) . PHP_EOL;
-
-// #26
-function cal($a, $b, $c)
+function showInfo(string $name, int $score): void
 {
-    $total = $a + $b + $c;
-
-    // if ($total < 0) {
-    //     return 0;
-    // } else {
-    //     return $total;
-    // }
-    // 条件演算子の簡略版 return 条件 ? 値 : 値
-    return $total < 0 ? 0 : $total;
+    echo $name . ': ' . $score . PHP_EOL;
 }
 
-echo cal(100, 300, 500) . PHP_EOL;
-echo cal(-1000, 300, 500) . PHP_EOL;
+showInfo('sato', 40);
+// Argument 2 のエラー (2番目の引数のエラー)
+// showInfo('sato', '4');
+
+// 返り値の型に？をつけると、nullか指定した型かのどちらかであるという指定ができる。
+function getAward(int $score): ?string
+{
+    return $score >= 100 ? 'Gold Medal' : null;
+}
+
+echo getAward(150) . PHP_EOL;
+// nullになるので、？がなければエラーになる。
+echo getAward(40) . PHP_EOL;
